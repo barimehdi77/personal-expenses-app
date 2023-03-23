@@ -65,7 +65,7 @@ class MyHomePage extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          tx.amount.toString(),
+                          '\$${tx.amount}',
                           style: TextStyle(
                             color: Colors.blue,
                             fontWeight: FontWeight.bold,
