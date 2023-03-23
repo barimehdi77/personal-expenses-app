@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 import './modals/transactions.modal.dart';
 
 void main() => runApp(MyApp());
@@ -49,6 +51,31 @@ class MyHomePage extends StatelessWidget {
                 elevation: 5,
               ),
             ),
+            Card(
+              elevation: 7,
+              child: Container(
+                child: Column(
+                  // crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    TextField(
+                      decoration:
+                          InputDecoration(labelText: 'Transaction Name: '),
+                    ),
+                    TextField(
+                      decoration:
+                          InputDecoration(labelText: 'Transaction Amount: '),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text('add Transaction'),
+                      style: ButtonStyle(
+                          foregroundColor:
+                              MaterialStateProperty.all(Colors.blue)),
+                    )
+                  ],
+                ),
+              ),
+            ),
             Column(
               children: transactions.map((tx) {
                 return Card(
@@ -84,7 +111,7 @@ class MyHomePage extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            tx.date.toString(),
+                            DateFormat.yMMMMEEEEd().format(tx.date),
                             style: TextStyle(
                               color: Colors.grey,
                               fontSize: 10,
