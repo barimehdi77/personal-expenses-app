@@ -16,8 +16,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  
-
   final nameController = TextEditingController();
   final amountController = TextEditingController();
 
@@ -27,20 +25,22 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Flutter App'),
       ),
-      body: Container(
-        width: double.infinity,
-        child: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              child: Card(
-                child: Text('this is a Card!'),
-                color: Colors.blue,
-                elevation: 5,
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          child: Column(
+            children: [
+              Container(
+                width: double.infinity,
+                child: Card(
+                  child: Text('this is a Card!'),
+                  color: Colors.blue,
+                  elevation: 5,
+                ),
               ),
-            ),
-            UserTransactions(),
-          ],
+              UserTransactions(),
+            ],
+          ),
         ),
       ),
     );
