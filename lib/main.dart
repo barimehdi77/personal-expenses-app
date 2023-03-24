@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
             background: Colors.black,
             onBackground: Colors.black,
             surface: Colors.grey,
-            onSurface: Colors.green),
+            onSurface: Colors.black),
         fontFamily: 'Quicksand',
         textTheme: ThemeData.light().textTheme.copyWith(
               titleLarge: TextStyle(
@@ -85,6 +85,12 @@ class _MyHomePageState extends State<MyHomePage> {
     ).toList();
   }
 
+  void _removeTransaction(String transaxtionId) {
+    setState(() {
+      _userTransactions.removeWhere((tx) => tx.id == transaxtionId);
+    });
+  }
+
   void _addNewTransaction(Transaction newTx) {
     setState(() {
       _userTransactions.add(
@@ -127,6 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Chart(_recentTransactions),
               TransactionList(
                 transactions: _userTransactions,
+                removeTransaction: _removeTransaction,
               ),
             ],
           ),
