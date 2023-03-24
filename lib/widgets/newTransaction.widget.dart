@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/modals/transactions.modal.dart';
 
-class NewTransaction extends StatelessWidget {
+class NewTransaction extends StatefulWidget {
   final Function onAddNewTransaction;
+  NewTransaction({@required this.onAddNewTransaction});
+
+  @override
+  State<NewTransaction> createState() => _NewTransactionState();
+}
+
+class _NewTransactionState extends State<NewTransaction> {
   final nameController = TextEditingController();
+
   final amountController = TextEditingController();
 
   void onSubmit() {
@@ -16,14 +24,14 @@ class NewTransaction extends StatelessWidget {
         'enteredName.isEmpty: ${enteredName.isEmpty}, enteredAmount <= 0: ${enteredAmount <= 0}');
     if (enteredName.isEmpty || enteredAmount <= 0) return;
 
-    onAddNewTransaction(Transaction(
+    widget.onAddNewTransaction(Transaction(
         id: 't_${nameController.text}',
         name: nameController.text,
         amount: double.parse(amountController.text),
         date: DateTime.now()));
+    Navigator.of(context).pop();
   }
 
-  NewTransaction({@required this.onAddNewTransaction});
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -47,7 +55,8 @@ class NewTransaction extends StatelessWidget {
               onPressed: onSubmit,
               child: Text('add Transaction'),
               style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all(Colors.blue)),
+                  foregroundColor: MaterialStateProperty.all(
+                      Theme.of(context).primaryColor)),
             )
           ],
         ),
