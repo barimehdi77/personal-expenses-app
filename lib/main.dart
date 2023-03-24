@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Quicksand',
         textTheme: ThemeData.light().textTheme.copyWith(
               titleLarge: TextStyle(
-                fontFamily: 'Quicksnad',
+                fontFamily: 'Quicksand',
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),
@@ -58,18 +58,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    Transaction(
-      id: 't1',
-      name: 'new Kit',
-      amount: 420.69,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      name: 'new shit',
-      amount: 77.69,
-      date: DateTime.now(),
-    ),
+    // Transaction(
+    //   id: 't1',
+    //   name: 'new Kit',
+    //   amount: 420.69,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't2',
+    //   name: 'new shit',
+    //   amount: 77.69,
+    //   date: DateTime.now(),
+    // ),
   ];
 
   void _addNewTransaction(Transaction newTx) {
